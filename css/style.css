@@ -520,6 +520,7 @@ footer .member-social {
 @media screen and (max-width: 991px){
 
     #section-7 textarea,#contact-us button[type=submit]{margin-top: 30px;}
+    h2{font-size: 24px;}
 }
 @media screen and (max-width: 767px){
     .menu{float: none;}
@@ -532,11 +533,12 @@ footer .member-social {
     .our-team-description p{width: 100%}
     .member-social{float: none;text-align: center;}
     .copyright{text-align: center;margin-bottom: 25px;}
-
+    h2{font-size: 24px;}
 }
 @media screen and (max-width: 600px){
     .filter {margin: 5px 2px; padding: 5px;}
     .member-of-team{width: 290px;}
+    h2{font-size: 24px;}
 }
 
 #Container .mix{
