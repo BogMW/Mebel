@@ -18,7 +18,7 @@ $(document).ready(function () {
         if(scroll_top >= 35 || window_width < 768){
             $('header').css({
                 'position':'fixed',
-                'background':'rgb(73, 69, 68)',
+                'background':'rgb(0, 0, 0)',
                 'margin-top':'0',
                 'padding':'20px 0 15px',
                 'border-bottom':'1px solid #fed136'
@@ -52,6 +52,7 @@ $(document).ready(function () {
     $(window).on('scroll', function () { //виклик функцій при скролінгу
         fixed_menu();
         parallax_main_img();
+        parallax_last_img();
     });
     $(window).resize(function () { //виклик функцій при зміні ширини вікна
         fixed_menu();
@@ -74,6 +75,15 @@ $(document).ready(function () {
         }
     }
 
+    function parallax_last_img () {
+        var offset_section_7 = $('#section-7').offset().top - window_height;
+        if(offset_section_7 < scroll_top){
+            var offset_main_img = (scroll_top - offset_section_7) / 10;
+            $('#section-7').css('background-position', '50%' + offset_main_img + '%');
+        }
+    }
+
+
     //ініціалізація WOW плагіна
     var wow = new WOW(
         {
@@ -93,9 +103,9 @@ $(document).ready(function () {
 
     //анімація для for-ico img в SECTION-2
     $('.for-ico img').hover(function () {
-        $(this).addClass('flip').addClass('animated');
+        $(this).addClass('pulse').addClass('animated');
     }, function () {
-        $(this).removeClass('flip').remove('animated');
+        $(this).removeClass('pulse').remove('animated');
     });
 
     //відображення історій ABOUT US
@@ -124,4 +134,23 @@ $(document).ready(function () {
     });
 
 
-});
+    $(function(){
+
+        // Instantiate MixItUp:
+
+        $('#Container').mixItUp();
+
+    });
+
+    $(".filter").click(function(){
+        var filter_class = $(this).data('filter');
+        if(filter_class == 'all'){
+            $('.portfolio-image a').addClass('cboxElement');
+        }else{
+            $('.portfolio-image a').removeClass('cboxElement');
+            $(filter_class).find('a').addClass('cboxElement');
+        }
+    });
+
+ });
+
