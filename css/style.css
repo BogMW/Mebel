@@ -537,6 +537,7 @@ footer .member-social {
 @media screen and (max-width: 600px){
     .filter {margin: 5px 2px; padding: 5px;}
     .member-of-team{width: 290px;}
+    h2{font-size: 24px;}
 }
 
 #Container .mix{
