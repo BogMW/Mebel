@@ -52,7 +52,7 @@ $(document).ready(function () {
     $(window).on('scroll', function () { //виклик функцій при скролінгу
         fixed_menu();
         parallax_main_img();
-        parallax_last_img();
+
     });
     $(window).resize(function () { //виклик функцій при зміні ширини вікна
         fixed_menu();
@@ -75,14 +75,6 @@ $(document).ready(function () {
         }
     }
 
-    function parallax_last_img () {
-        var offset_section_7 = $('#section-7').offset().top - window_height;
-        if(offset_section_7 < scroll_top){
-            var offset_main_img = (scroll_top - offset_section_7) / 10;
-            $('#section-7').css('background-position', '50%' + offset_main_img + '%');
-        }
-    }
-
 
     //ініціалізація WOW плагіна
     var wow = new WOW(
@@ -97,9 +89,6 @@ $(document).ready(function () {
     );
     wow.init();
 
-    //анімація для парних та непарних блоків about-us-div
-    $('.about-us-div').filter(':even').addClass('slideInLeft');
-    $('.about-us-div').filter(':odd').addClass('slideInRight');
 
     //анімація для for-ico img в SECTION-2
     $('.for-ico img').hover(function () {
