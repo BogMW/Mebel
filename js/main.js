@@ -97,30 +97,7 @@ $(document).ready(function () {
         $(this).removeClass('pulse').remove('animated');
     });
 
-    //відображення історій ABOUT US
-    var showed_stories = 4;
-    var limit_stories = 4;
-    var about_us_image_wrap = $('.about-us-image-wrap');
-    var count_about_us_image_wrap = about_us_image_wrap.length;
 
-    if(count_about_us_image_wrap > limit_stories + 1){ //ховаємо історії, якщо їх більше 4
-        for(i=limit_stories; i < count_about_us_image_wrap - 1 ; i++){
-            $('#section-4 .row.relative').eq(i).hide();
-        }
-    }
-
-    $('#next-about-us').click(function () { //при кліку на кнопці відображаємо наступні 4 історії
-        showed_stories = showed_stories + 2;
-        for(i=0; i < showed_stories;i++){
-            $('#section-4 .row.relative').eq(i).slideDown(500);
-            scroll_top = $(window).scrollTop();
-            $('html, body').animate({ scrollTop:  scroll_top + 1}, 1 );
-        }
-        if(showed_stories >= count_about_us_image_wrap - 1){
-            $(this).parent().parent().prev('.relative').find('.about-us-image-wrap').css('margin',' 0 auto');
-            $(this).parent().parent().slideUp(500);
-        }
-    });
 
 
     $(function(){
@@ -140,6 +117,21 @@ $(document).ready(function () {
             $(filter_class).find('a').addClass('cboxElement');
         }
     });
+
+
+        $('.cat-1').on('click', function () {
+            $('#filter-category-3').click();
+        });
+        $('.cat-2').on('click', function () {
+            $('#filter-category-2').click();
+        });
+        $('.cat-3').on('click', function () {
+            $('#filter-category-4').click();
+        });
+        $('.cat-4').on('click', function () {
+            $('#filter-category-1').click();
+        })
+
 
  });
 
