@@ -132,6 +132,17 @@ $(document).ready(function () {
             $('#filter-category-1').click();
         })
 
+});
 
- });
+$("#contact-us").submit(function() {
+    var form_data = $(this).serialize();
+    $.ajax({
+        type: "POST",
+        url: "mail.php",
+        data: form_data,
+        success: function() {
+            alert("Ваше повідомлення успішно надіслано");
+        }
+    });
+});
 

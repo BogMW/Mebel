@@ -1,16 +1,20 @@
-<?php
-$frm_name  = "Bogdan";
-$recepient = "bogmw@i.ua";
-$sitename  = "�������� �����";
-$subject   = "����� ������ � ����� \"$sitename\"";
-$name = trim($_POST["name"]);
-$email = trim($_POST["email"]);
-$tel = trim($_POST["tel"]);
-$mess = trim($_POST["message"]);
-$message = "
-E-mail: $email <br>
-���: $name <br>
-�������: $tel <br>
-$mess
-";
-mail($recepient, $subject, $message, "From: $frm_name <$email>" . "\r\n" . "Reply-To: $email" . "\r\n" . "X-Mailer: PHP/" . phpversion() . "\r\n" . "Content-type: text/html; charset=\"utf-8\"");
+<?
+if((isset($_POST['name'])&&$_POST['name']!="")&&(isset($_POST['phone'])&&$_POST['phone']!="")){
+    $to = 'Yaroslava.stashkevych@yandex.ua';
+    $subject = 'Повідомлення з сайту FURNITURE.KM.UA'; //Загаловок сообщения
+    $message = '
+                <html>
+                    <head>
+                        <title>'.$subject.'</title>
+                    </head>
+                    <body>
+                        <p>Імя: '.$_POST['name'].'</p>
+                        <p>Електронна адреса: '.$_POST['email'].'</p>
+                        <p>Телефон: '.$_POST['tel'].'</p>
+                    </body>
+                </html>';
+    $headers  = "Content-type: text/html; charset=utf-8 \r\n"; //Кодировка письма
+    $headers .= "From: FURNITURE.KM.UA \r\n"; //Наименование и почта отправителя
+    mail($to, $subject, $message, $headers); //Отправка письма с помощью функции mail
+}
+?>
